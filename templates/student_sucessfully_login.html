@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        #t
+        {
+           margin-top: 80px;
+           border-color: black;
+        }
+        .col
+        {
+           font-size: 20px;
+            border-color: red;
+            border-width: 1px;
+            color: red;
+        }
+    </style>
+</head>
+    <body>
+<table align="center" border="4" id="t" height="200" width="700">
+    <tr>
+        <th class="col"><a href="{% url 'enroll_the_course' %}">enroll the Course</a></th>
+        <th class="col"><a href="{% url 'view_all_erolled_courses' %}">View all enrolled courses</a></th>
+        <th class="col"><a href="{% url 'Cancel_enrolled_courses' %}">Cancel the enrolled course</a></th>
+
+    </tr>
+    <tr>
+        <th colspan="4">
+            {% block sree %}
+                <h1 style="font-size: 20px"> Welcome<br>
+                    Mr/Miss:{{ data.Name }}</h1>
+
+            {% endblock %}
+        </th>
+
+    </tr>
+
+</table>
+<a href="{% url 'student_login' %}">Home</a>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'student_sucessfully_login.html' %}
+{% block sree %}
+    <style>
+    .first
+    {
+       color:red;
+       font-size:40px;
+       width: 40px;
+    }
+    .second
+    {
+        font-size: 25px;
+    }
+    #tab
+    {
+        width: 350px;
+    }
+    </style>
+    {% if st_en %}
+    <table align="center" border="0" id="tab">
+    <tr>
+        <th class="first">Course</th>
+        <th class="first">Faculty</th>
+         <th class="first">Cancel</th>
+    </tr>
+    {% for x in st_en %}
+        <tr>
+            <th class="second" >{{ x.e_course }}</th>
+            <th class="second">{{ x.e_faculty }}</th>
+             <th>
+                 <form action="{% url 'canceled_courses' %}" method="post">
+                     {% csrf_token %}
+        <input type="hidden" value="{{ x.e_course }}" name="d1">
+        <input type="hidden" value="{{ x.e_faculty}}" name="d2">
+                     <input type="hidden" value="{{request.session.user}}" name="d3">
+
+                     <button type="submit">Cancel</button>
+                 </form>
+             </th>
+        </tr>
+    {% endfor %}
+        {% else %}
+        <h1 style="color:red">you are not  enrolled any courses</h1>
+    {% endif %}
+    </table>
+{% endblock%}

@@ -1,0 +1,49 @@
+{% extends 'admin_page.html' %}
+{% block sree %}
+    <style>
+    #heading
+    {
+        font-size: 30px;
+        color: red;
+
+
+    }
+    .heads
+    {
+        font-size: 20px;
+    }
+     #button {
+         font-size: 25px;
+         color: red;
+         background-color: black;
+     }
+      #messages
+        {
+            font-size: 20px;
+            color: red;
+        }
+
+    </style>
+    <form action="{% url 'updated_course' %}" method="post">
+        {% csrf_token %}
+
+        <table align="center" border="0">
+        <tr><th id="heading">Update Course</th></tr>
+
+        <tr><th><input type="number"  value="{{ up.No  }}" name="u7" hidden></th></tr>
+        <tr><th class="heads">Course Name:<input type="text" name="u1" value="{{ up.Name  }}" readonly></th></tr>
+        <tr><th class="heads">Faculty:<input type="text" name="u2" value="{{ up.Faculty  }}" readonly></th></tr>
+        <tr><th class="heads">Date:<input type="date" name="u3" value="{{ up.Date  }}"></th></tr>
+        <tr><th class="heads">Time:<input type="text" name="u4" value="{{ up.Time }}"></th></tr>
+        <tr><th class="heads">Fee:<input type="number" name="u5" value="{{ up.Fee  }}"></th></tr>
+        <tr><th class="heads">Duration:<input type="text" name="u6" value="{{ up.Duration  }}"></th></tr>
+    <tr><th>
+        <button type="submit" id="button">Update</button>
+    </th></tr>
+
+
+
+    </table>
+    </form>
+
+{% endblock %}

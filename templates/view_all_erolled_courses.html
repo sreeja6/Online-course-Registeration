@@ -1,0 +1,9 @@
+{% extends 'student_sucessfully_login.html' %}
+{% block sree %}
+    <form action="{% url 'respective_student_enroll_courses' %}">
+    <table align="center" border="0">
+   <tr><th><input type="hidden" value="{{ request.session.user }}" name="v1">
+       <button type="submit">Click and see all ur enrolled courses</button></th></tr>
+    </table>
+    </form>
+{% endblock %}

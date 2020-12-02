@@ -1,0 +1,31 @@
+<html>
+<head>
+    <style>
+        #head
+        {
+          font-size: 30px;
+          color: red;
+          background-color: black;
+        }
+        table
+        {
+            height: 200px;
+            width: 500px;
+            margin-top: 80px;
+        }
+        .cols
+        {
+            font-size: 25px;
+        }
+    </style>
+</head>
+    <body>
+<table align="center" border="0">
+    <tr><th colspan="2" id="head">Online Course Registeration</th></tr>
+    <tr>
+        <th class="cols"><a href="{% url 'admin_login' %}">Admin</a></th>
+        <th class="cols"><a href="{% url 'student_page' %}">Student</a></th>
+    </tr>
+</table>
+</body>
+</html>

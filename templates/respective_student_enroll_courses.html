@@ -1,0 +1,36 @@
+{% extends 'student_sucessfully_login.html' %}
+{% block sree %}
+    <style>
+    .first
+    {
+       color:red;
+       font-size:40px;
+       width: 40px;
+    }
+    .second
+    {
+        font-size: 25px;
+    }
+    #tab
+    {
+        width: 350px;
+    }
+    </style>
+    {% if st_en %}
+    <table align="center" border="0" id="tab">
+    <tr>
+        <th class="first">Course</th>
+        <th class="first">Faculty</th>
+    </tr>
+    {% for x in st_en %}
+        <tr>
+            <th class="second" >{{ x.e_course }}</th>
+            <th class="second">{{ x.e_faculty }}</th>
+        </tr>
+    {% endfor %}
+        {% else %}
+        <h1 style="color:red">you are not  enrolled any courses</h1>
+    {% endif %}
+
+    </table>
+{% endblock%}

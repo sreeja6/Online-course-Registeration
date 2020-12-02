@@ -1,0 +1,10 @@
+{% extends 'student_sucessfully_login.html' %}
+{% block sree %}
+    <form action="{% url 'respective_student_cancel_courses' %}">
+    <table align="center" border="0">
+
+   <tr><th><input type="hidden" value="{{ request.session.user }}" name="c1">
+       <button type="submit">Click and cancel all ur enrolled courses</button></th></tr>
+    </table>
+    </form>
+{% endblock %}

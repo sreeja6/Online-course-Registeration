@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+<head>
+    <style>
+        #admin_page
+        {
+            font-size: 40px;
+            color: red;
+            background-color: black
+
+        }
+        #tab
+        {
+            width: 700px;
+            margin-top: 80px;
+            height: 400px;
+
+
+        }
+        .s_a
+        {
+            font-size: 25px;
+            color: goldenrod;
+
+        }
+
+    </style>
+</head>
+    <body>
+<table align="center" border="1" id="tab">
+    <tr><th colspan="3" id="admin_page">Admin Page</th></tr>
+    <tr>
+        <th class="s_a"><a href="{% url 'schedule_class' %}" >Schedule New Class</a></th>
+        <th class="s_a"><a href="{% url 'view_all_schedule_classes' %}" >View All Schedule Classes</a></th>
+        <th class="s_a"><a href="{% url 'main' %}" >Home</a></th>
+    </tr>
+   <tr>
+       <th colspan="3">
+        {% block sree %}
+            <img src="{% static 'images/Employee.png' %}" width="350">
+        {% endblock %}
+
+    </th>
+    </tr>
+</table>
+</body>
+</html>

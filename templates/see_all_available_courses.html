@@ -1,0 +1,38 @@
+{% extends 'student_page.html' %}
+{% block sree %}
+    <style>
+    #heading
+    {
+        font-size: 30px;
+        color: red;
+        background-color: black;
+    }
+    .second_row
+    {
+        font-size: 20px;
+    }
+    </style>
+    <table align="center" border="0.5">
+        <tr><th colspan="8" id="heading">See All Available Course</th></tr>
+    <tr>
+        <th class="second_row">Name</th>
+        <th class="second_row">Faculty</th>
+        <th class="second_row">Date</th>
+        <th class="second_row">Time</th>
+        <th class="second_row">Fee</th>
+        <th class="second_row">Duration</th>
+    </tr>
+    {% for x in see %}
+        <tr>
+        <th width="80px">{{ x.Name }}</th>
+        <th width="80px">{{ x.Faculty }}</th>
+        <th width="80px">{{ x.Date }}</th>
+        <th width="80px">{{ x.Time }}</th>
+        <th width="80px">{{ x.Fee }}</th>
+        <th width="80px">{{ x.Duration }}</th>
+
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

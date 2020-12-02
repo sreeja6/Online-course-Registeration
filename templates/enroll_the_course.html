@@ -1,0 +1,55 @@
+{% extends 'student_sucessfully_login.html' %}
+{% block sree %}
+         <style>
+    #heading
+    {
+        font-size: 30px;
+        color: red;
+        background-color: black;
+    }
+    .second_row
+    {
+        font-size: 20px;
+    }
+    </style>
+
+    <table align="center" border="0.5" width="900">
+    <tr>
+        <th class="second_row">Name</th>
+        <th class="second_row">Faculty</th>
+        <th class="second_row">Date</th>
+        <th class="second_row">Time</th>
+        <th class="second_row">Fee</th>
+        <th class="second_row">Duration</th>
+        <th class="second_row">Enroll</th>
+    </tr>
+    {% for x in e %}
+        <tr>
+        <th width="80px">{{ x.Name }}</th>
+        <th width="80px">{{ x.Faculty }}</th>
+        <th width="80px">{{ x.Date }}</th>
+        <th width="80px">{{ x.Time }}</th>
+        <th width="80px">{{ x.Fee }}</th>
+        <th width="80px">{{ x.Duration }}</th>
+        <th width="150px">
+             <form action="{% url 'enroll_successfully' %}" method="post">
+    {% csrf_token %}
+
+            <input type="hidden" value="{{ request.session.user }}" name="s1">
+            <input type="hidden" value="{{ request.session.name }}" name="s2">
+            <input type="hidden" value="{{ x.Name }}" name="s3">
+             <input type="hidden" value="{{ x.Faculty}}" name='s4'>
+                 <button type="submit">Enroll</button>
+
+             </form>
+
+
+
+        </th>
+
+        </tr>
+
+        {% endfor %}
+    <th></th>
+    </table>
+{% endblock %}

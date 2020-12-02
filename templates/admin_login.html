@@ -1,0 +1,62 @@
+<html>
+<head>
+    <style>
+        #login
+        {
+           color: red;
+           font-size: 40px;
+           background-color: black;
+            
+        }
+        table
+        {
+            width:400px;
+            height: 300px;
+            margin-top:80px;
+
+
+        }
+        .up
+        {
+            font-size: 30px;
+        }
+        .fields
+        {
+            width: 200px;
+            height: 30px;
+        }
+        #button
+        {
+            font-size: 25px;
+            color:red;
+            background-color: black;
+
+        }
+        #messages
+        {
+            font-size: 20px;
+            color: red;
+        }
+
+    </style>
+</head>
+    <body>
+<table align="center" border="2" >
+    <form action="{% url 'admin_sucess_login' %}" method="post">
+        {% csrf_token %}
+    <tr><th id="login">Admin Login</th></tr>
+    <tr><th class="up">Username:<input type="text" required name="a1" class="fields"></th></tr>
+    <tr><th class="up">Password:<input type="password" required name="a2" class="fields"></th></tr>
+    <tr><th><button type="submit" id="button">Login</button></th></tr>
+    </form>
+    {% if messages %}
+        {% for x in messages %}
+            <tr><th id="messages">{{ x }}</th></tr>
+        {% endfor %}
+    {% endif %}
+
+</table>
+</body>
+<a href ='{% url 'main' %}'>Back</a>
+
+</html>
